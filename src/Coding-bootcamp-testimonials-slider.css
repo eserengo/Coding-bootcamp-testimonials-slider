@@ -1,0 +1,206 @@
+/*
+ Name: Coding bootcamp testimonials slider
+ Description: A Frontendmentor.io coding challenge.
+ Author: Federico Borzani
+ Author URL:  https://github.com/eserengo/
+*/
+
+/* --- TAGS --- */
+
+:root {
+
+  /* --- FONTS --- */
+
+  font-family: "Inter";
+  font-size: 32px;
+  text-rendering: optimizeLegibility;
+  --Font-Light: 300;
+  --Font-Normal: 500;
+  --Font-Bold: 700;
+
+  /* --- COLOR PALETTE --- */
+
+  --Dark-Blue: hsl(240, 38%, 20%);
+  --Grayish-Blue: hsl(240, 18%, 77%);
+}
+
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0%;
+  margin: 0%;
+  user-select: none;
+}
+
+body {
+  min-width: 200px;
+}
+
+ul, li {
+  list-style-type: none;
+}
+
+/* --- GENERAL CLASSES --- */
+
+.hidden {
+  display: none;
+}
+
+.selectable:hover {
+  cursor: pointer;
+  user-select: all;
+}
+
+.rel {
+  position: relative;
+}
+
+.abs {
+  position: absolute;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.flex-row {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.flex-row.center,
+.flex-col.center {
+  align-items: center;
+  justify-content: center;
+}
+
+.abs.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* --- SPECIFIC CLASSES --- */
+
+.icon {
+  border: 1px solid var(--Grayish-Blue);
+  padding: 8px;
+  border-radius: 8px;
+  width: 24px;
+  height: 24px;
+  opacity: 75%;
+  position: absolute;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+  box-shadow: 0px 2px 8px var(--Grayish-Blue);
+  opacity: 1;
+}
+
+.prev {
+  top: 50%;
+  left: 1%;
+}
+
+.next {
+  top: 50%;
+  right: 1%;
+}
+
+.card {
+  padding: 15% 5%;
+  background-image: url("./images/pattern-bg.svg"), url("./images/pattern-quotes.svg"), url("./images/pattern-curve.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 5%, center 55%, bottom left;
+  background-size: 90% 45%, 16% 8%, 100% 10%;
+}
+
+.quote {
+  order: 1;
+  color: var(--Dark-Blue);
+  font-weight: var(--Font-Light);
+  font-size: 66%;
+  padding: 20% 0% 5%;
+}
+
+.name {
+  order: 2;
+  z-index: 1;
+  color: var(--Dark-Blue);
+  font-weight: var(--Font-Bold);
+  font-size: 50%;
+}
+
+.pos {
+  order: 3;
+  color: var(--Grayish-Blue);
+  font-weight: var(--Font-Normal);
+  font-size: 50%;
+}
+
+.hero {
+  z-index: 0;
+  border-radius: 8px;
+  width: 70%;
+  box-shadow: 0px 4px 16px var(--Dark-Blue);
+}
+
+.attribution {
+  font-size: 33%;
+  font-weight: var(--Font-Light);
+  color: var(--Dark-Blue);
+  text-align: center;
+}
+
+/* --- MEDIA QUERIES --- */
+
+@media screen and (width > 375px) {
+  body {
+    min-width: 600px;
+  }
+  .card {
+    background-position: 90% 50%, 20% 20%, bottom left;
+    background-size: 55% 90%, 15% 15%, 50% 15%;
+    padding: 10%;
+    display: grid;
+    grid-template-rows: repeat(4, 25%);
+    grid-template-columns: 50% 50%;
+    max-width: 900px;
+  }
+  .quote {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+    z-index: 1;
+    padding: 10% 25% 10% 0%;
+  }
+  .name {
+    grid-column: 1;
+    grid-row: 4;
+  }
+  .pos {
+    grid-column: 1 / span 2;
+    grid-row: 4;
+    margin-left: 22.5%;
+    z-index: 1;
+  }
+  .hero {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    z-index: 0;
+    width: 100%;
+  }
+}
